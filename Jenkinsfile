@@ -14,14 +14,14 @@ pipeline {
             post {
                 success {
                     echo 'Now Archiving...'
-                    archiveArtifacts artifacts: '**/target/surefire-reports/*.war'
+                    archiveArtifacts artifacts: '**/target/*.war'
                 }
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing..'
-                junit '**/target/*.xml'
+                junit '**/target/surefire-reports/TEST-*.xml'
             }
         }
         stage('Deploy') {
