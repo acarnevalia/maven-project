@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL} JobName ${env.JOB_NAME} Workspace ${env.WORKSPACE}"
+                echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL} Workspace ${env.WORKSPACE} JobName ${env.JOB_NAME} end"
                 bat 'mvn clean package'
             }
             post {
