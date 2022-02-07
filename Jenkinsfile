@@ -27,7 +27,7 @@ pipeline {
         
        stage('Deploy to igfscg') {
             steps {
-                echo 'Deploying....'
+                echo 'Deploy to igfscg....'
                 bat 'winscp /command "open scp://igfscg:igfscg@igfscg.netsw.it/tmp" "put **/target/*.war" "exit" '
             }
            post {
