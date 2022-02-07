@@ -33,9 +33,9 @@ pipeline {
         }
         
         stage('Deploy to production'){
-            step{
+            steps{
                 echo 'Deploying to Production'
-                timeout(time:5 unit:'DAYS'){
+                timeout(time:5,unit:'DAYS'){
                     input message: 'Approve PRODUCTION Deployment?'
                 }
                 build job: ('Deploy-To-Production')                
