@@ -28,7 +28,7 @@ pipeline {
        stage('Deploy to igfscg') {
             steps {
                 echo 'Deploy to igfscg....'
-                bat 'winscp /command "open scp://igfscg:igfscg@igfscg.netsw.it/tmp" "put 'C:\Users\a.carnevali\.jenkins\workspace\package-MyFork-Pipeline\webapp\target'" "exit" '
+                bat 'winscp /command "open scp://igfscg:igfscg@igfscg.netsw.it/tmp" "put 'C:\Users\a.carnevali\.jenkins\workspace\package-MyFork-Pipeline\webapp\target\webapp.war' " "exit" '
             }
            post {
                failure{
