@@ -24,6 +24,14 @@ pipeline {
                 junit '**/target/surefire-reports/TEST-*.xml'
             }
         }
+        
+        stage('Deploy to Staging'){
+            step{
+                 echo 'Deploy to Staging..'
+                build job: ('Deploy-To-Staging')
+              }  
+        }
+        
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
