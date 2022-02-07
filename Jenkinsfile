@@ -28,11 +28,11 @@ pipeline {
        stage('Deploy to igfscg') {
             steps {
                 echo 'Deploy to igfscg....'
-                bat 'winscp /command "open scp://igfscg:igfscg@igfscg.netsw.it/tmp" "put **/target/*.war" "exit" '
+                bat 'winscp /command "open scp://igfscg:igfscg@igfscg.netsw.it/tmp" "put C:\Users\a.carnevali\.jenkins\workspace\package-MyFork-Pipeline\webapp\target" "exit" '
             }
            post {
                failure{
-                   echo 'Failed deployng to igfscg.nesw.it server'
+                   echo 'Failed deployng to igfscg.nesw.it server.  Ma non lo intercetta qui se scp fallisce! Uff'
                }
            }
         }
