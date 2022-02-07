@@ -30,6 +30,11 @@ pipeline {
                 echo 'Deploying....'
                 bat 'winscp /command "open scp://igfscg:igfscg@igfscg.netsw.it/tmp" "put **/target/*.war" "exit" '
             }
+           post {
+               failure{
+                   echo 'Failed deployng to igfscg.nesw.it server'
+               }
+           }
         }
         
         stage('Deploy to Staging'){
