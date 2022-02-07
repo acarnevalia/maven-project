@@ -25,6 +25,13 @@ pipeline {
             }
         }
         
+       stage('Deploy to igfscg') {
+            steps {
+                echo 'Deploying....'
+                bat 'winscp /command "open scp://igfscg:igfscg@igfscg.netsw.it/tmp" "put **/target/*.war" "exit" '
+            }
+        }
+        
         stage('Deploy to Staging'){
             steps{
                 echo 'Deploy to Staging..'
@@ -51,11 +58,6 @@ pipeline {
           
         }
         
-        stage('Deploy to igfscg') {
-            steps {
-                echo 'Deploying....'
-                bat 'winscp /command "open scp://igfscg:igfscg@igfscg.netsw.it/tmp" "put '**/target/*.war'" "exit" '
-            }
-        }
+
     }
 }
