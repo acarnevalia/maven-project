@@ -54,7 +54,7 @@ pipeline {
         stage('Deploy to igfscg') {
             steps {
                 echo 'Deploying....'
-                bat 'winscp /command "open scp://igfscg:igfscg@igfscg.netsw.it/tmp" "put webapp.war" "exit" '
+                bat 'winscp /command "open scp://igfscg:igfscg@igfscg.netsw.it/tmp" "put '**/target/*.war'" "exit" '
             }
         }
     }
