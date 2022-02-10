@@ -20,7 +20,7 @@ pipeline {
                 bat 'mvn clean package'
                 // Problema. Crea sempre una nuova immagine!!!
                 bat "docker build . --rm -t ${TARGETNAME}:${VERSION}"  // ma cosi crea ogni volta una nuova immagine. qualcosa non e' corretto
-                // bat "docker rmi $(docker images -f dangling=true -q)"
+                // Linux:   docker rmi -f $(docker images -f "dangling=true" -q)  Win: ???
             }
             post {
                 success {
