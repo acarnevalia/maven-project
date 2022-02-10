@@ -10,6 +10,7 @@ pipeline {
             steps {
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL} Workspace ${env.WORKSPACE} JobName ${env.JOB_NAME} end"
                 bat 'mvn clean package'
+                bat 'docker build . -t tomcatwebapp.${env.BUILD_ID}'
             }
             post {
                 success {
