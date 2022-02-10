@@ -7,9 +7,9 @@ pipeline {
     
      environment {
     //Use Pipeline Utility Steps plugin to read information from pom.xml into env variables
-    // IMAGE = readMavenPom().getArtifactId()
-    IMAGE = "testgit"
-    VERSION = readMavenPom().getVersion()
+    IMAGE = readMavenPom().getArtifactId()
+    // VERSION = readMavenPom().getVersion()
+    VERSION = "github"
     TARGETNAME = "tomcatwebapp"
     }
 
