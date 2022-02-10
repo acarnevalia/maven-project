@@ -19,7 +19,8 @@ pipeline {
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL} Workspace ${env.WORKSPACE} JobName ${env.JOB_NAME} Pom_Version ${VERSION}  Pom_ArtifactImage ${IMAGE}"
                 bat 'mvn clean package'
                 // Problema. Crea sempre una nuova immagine!!!
-                bat "docker build . -t ${TARGETNAME}:${VERSION}"  // ma cosi crea ogni volta una nuova immagine. qualcosa non e' corretto
+                // bat "docker build . -t ${TARGETNAME}:${VERSION}"  // ma cosi crea ogni volta una nuova immagine. qualcosa non e' corretto
+                bat "docker build . -t ${VERSION}"
             }
             post {
                 success {
