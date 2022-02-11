@@ -20,7 +20,7 @@ pipeline {
                 bat 'mvn clean package'
                 // Problema. Crea sempre una nuova immagine!!!
                 bat "docker build . -t ${TARGETNAME}:${VERSION}"  // ma cosi crea ogni volta una nuova immagine. qualcosa non e' corretto
-                // Linux:   docker rmi -f $(docker images -f "dangling=true" -q)  Win: ???
+                bat "docker image prune -f"
             }
             post {
                 success {
