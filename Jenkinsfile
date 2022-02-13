@@ -20,7 +20,7 @@ pipeline {
                 bat 'mvn clean package'
                 // Problema. Crea sempre una nuova immagine!!!
                 bat "docker build . -t ${TARGETNAME}:${VERSION}"  // ma cosi crea ogni volta una nuova immagine. qualcosa non e' corretto
-                bat "docker image prune -f"
+                bat "docker image prune -f" // Do not prompt for confirmation
             }
             post {
                 success {
